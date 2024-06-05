@@ -1,8 +1,8 @@
 version: 0.1
 env:
   variables:
-    IMAGE_REPO_NAME: xuda-devops-p3_2
-    IMAGE_TAG: v0.0.2
+    IMAGE_REPO_NAME: xuda-devops-p3
+    IMAGE_TAG: v0.0.1
 phases:
   pre_build:
     commands:
