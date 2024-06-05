@@ -4,8 +4,8 @@ metadata:
   name: configmap
 data:
   DB_NAME: postgres
-  DB_USER: postgres
-  DB_HOST: postgresdb
+  DB_USERNAME: postgres
+  DB_HOST: postgresql
   DB_PORT: '5432'
 ---
 apiVersion: v1
