@@ -9,6 +9,7 @@ from random import randint
 
 from config import app, db
 
+from tokens import Token
 
 port_number = int(os.environ.get("APP_PORT", 5153))
 
