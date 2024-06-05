@@ -77,10 +77,6 @@ For this project, you are a DevOps engineer who will be collaborating with a tea
     kubectl get svc
     ```
 
-    ![](/screenshots/3_Kubernetes_kubectl%20get%20svc.png "")
-
-    Record the `EXTERNAL-IP` of service `public-backend-app`
-
 2. Access the URL and check response code
 
     ```
