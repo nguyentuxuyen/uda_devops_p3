@@ -16,42 +16,45 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: coworking
   labels:
-    name: coworking
+    service: backend-app
+  name: backend-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: coworking
+      service: backend-app
   template:
     metadata:
       labels:
-        service: coworking
+        service: backend-app
     spec:
       containers:
-      - name: coworking
-        image: <DOCKER_IMAGE_URI_FROM_ECR> TODO
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          httpGet:
-            path: /health_check
-            port: 5153
-          initialDelaySeconds: 5
-          timeoutSeconds: 2
-        readinessProbe:
-          httpGet:
-            path: "/readiness_check"
-            port: 5153
-          initialDelaySeconds: 5
-          timeoutSeconds: 5
-        envFrom:
-        - configMapRef:
-            name: configmap
-        env:
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: <NAME OF THE Secret> TODO
-              key: <THE KEY FROM Secret WHICH has THE ENCODED PASSWORD> TODO
+        - image: 927143137470.dkr.ecr.us-east-1.amazonaws.com/xuda_devops_p3:0.0.1
+          name: backend-app
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5153
+          livenessProbe:
+            httpGet:
+              path: /health_check
+              port: 5153
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              path: /readiness_check
+              port: 5153
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "2048Mi"
+              cpu: "500m"
+          envFrom:
+            - configMapRef:
+                name: configmap
       restartPolicy: Always
