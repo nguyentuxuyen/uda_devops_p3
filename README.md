@@ -27,8 +27,8 @@ For this project, you are a DevOps engineer who will be collaborating with a tea
     aws ecr create-repository --repository-name $PROJECT_NAME --image-scanning-configuration scanOnPush=true --region us-east-1
     
 #### 2. Create CodeBuild.
- Follow the lesson
-
+ Follow the lesson and below link
+https://docs.aws.amazon.com/codebuild/latest/userguide/github-webhook.html
 #### 3. Create resource network.
 
     aws cloudformation create-stack --stack-name $PROJECT_NAME-network --template-body file://deployment/network.yaml --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" --region us-east-1
