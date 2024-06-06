@@ -27,7 +27,7 @@ For this project, you are a DevOps engineer who will be collaborating with a tea
     aws ecr create-repository --repository-name $PROJECT_NAME --image-scanning-configuration scanOnPush=true --region us-east-1
     
 #### 2. Create CodeBuild.
- Follow the lesson and below link.
+ Follow the lesson and create webhook below link
 https://docs.aws.amazon.com/codebuild/latest/userguide/github-webhook.html
 #### 3. Create resource network.
 
